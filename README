@@ -1,0 +1,13 @@
+Ensure you run gem-gratitude.rb in a directory which has a Gemfile and has been `bundle install`ed
+gem install httparty
+ruby gem-gratitude.rb
+
+# Todo
+
+* Figure out GitHub urls for non GH [:homepage]'s
+* Exclusion list
+
+# Ideas
+
+* Executable that can be run in any gem-enabled dir with having to copy the script in
+* Run as webserver that parses all Gemfiles in a Workspace (containing multiple projects)

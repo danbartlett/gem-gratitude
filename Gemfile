@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.3'
 
 gem 'rails', '4.0.4'
 gem 'rack'
@@ -33,7 +33,6 @@ group :development, :test do
 end
 
 # Previously assets group
-gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'uglifier', '>= 1.0.3'
