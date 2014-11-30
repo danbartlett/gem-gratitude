@@ -2,6 +2,16 @@ require 'rubygems'
 require 'httparty'
 require 'json'
 require 'erb'
+require 'redcarpet'
+
+# Initializes a Markdown parser
+@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+
+# Format the issue body
+def summary(text)
+	text = @markdown.render(text)
+	text.gsub!(/(?:\n\r?|\r\n?)/, '<br>')
+end
 
 # Load Gemfile
 gemfile_path=File.expand_path('../Gemfile', __FILE__)
@@ -45,7 +55,7 @@ file = File.open('giveback.html', 'w')
 			@issue_count += 1
 			@html_content << "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
 				"<div><strong><a href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a></strong><br><br>"\
-				"#{issue['body'].gsub!(/(?:\n\r?|\r\n?)/, '<br>')}</div>"
+				"#{summary(issue['body'])}</div>"
 		end
 	end
 end

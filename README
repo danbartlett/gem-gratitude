@@ -1,10 +1,24 @@
-Ensure you run gem-gratitude.rb in a directory which has a Gemfile and has been `bundle install`ed
-gem install httparty
-ruby gem-gratitude.rb
+# gem-gratitude
+
+Give back to the gem you depend on. gem-gratitude will scan your Gemfile and find any open issues.
+
+Ensure you run gem-gratitude.rb in a directory which has a Gemfile and has been `bundle install`ed.
+
+`ruby gem-gratitude.rb`
+
+Then open up `giveback.html` to view all issues you can help with.
+
+# Dependencies
+
+Requires httparty and redcarpet.
+
+`gem install httparty`
+`gem install redcarpet`
 
 # Todo
 
 * Apply <pre> tags around ` and ``` blocks
+* Display issue labels along with preview
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
 
