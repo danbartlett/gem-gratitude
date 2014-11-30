@@ -29,13 +29,13 @@ end
 	# if g[:homepage] =~ /https:\/\/github.com\//
 end
 
-# HTML file
+# Open HTML output file for writing
 file = File.open('giveback.html', 'w')
 
 # Find all open issues via the GitHub API
 @html_content = ''
 @issue_count = 0
-@gem_list[0..5].each do |g|
+@gem_list[0..3].each do |g|
 	github_url = g[:homepage].split('/')
 	response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open")
 	json = JSON.parse(response.body)
@@ -43,10 +43,13 @@ file = File.open('giveback.html', 'w')
 		puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues!"
 		json.each do |issue|
 			@issue_count += 1
-			@html_content << "<h3>#{g[:name]}: <a href=\"#{issue['html_url']}\">#{issue['title']}</a></h3><div>#{issue['body'].gsub!(/(?:\n\r?|\r\n?)/, '<br>')}</div></h3>"
+			@html_content << "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
+				"<div><strong><a href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a></strong><br><br>"\
+				"#{issue['body'].gsub!(/(?:\n\r?|\r\n?)/, '<br>')}</div>"
 		end
 	end
 end
 
+# Write to ERB template
 erb = ERB.new(File.read('template.erb'))
 file.write erb.result(binding)

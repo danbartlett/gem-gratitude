@@ -4,6 +4,7 @@ ruby gem-gratitude.rb
 
 # Todo
 
+* Apply <pre> tags around ` and ``` blocks
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
 

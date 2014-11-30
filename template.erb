@@ -1,15 +1,17 @@
 <html>
 	<head>
-		<script src="http://code.jquery.com/jquery-1.10.2.js"></script><script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-		<script>$(function() { $( "#accordion" ).accordion({ heightStyle: "content" }); }); </script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<title>gem-gratitude - Give back to the gems you depend on</title>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script>$(function() { $( "#accordion" ).accordion({ heightStyle: "content" }); });</script>
+		<link rel="stylesheet" href="main.css">
 	</head>
 
-<body>
-	<strong>Found <%=@issue_count%> open issues across <%=@gem_list.count%> gems you depend on. Happy hacking!</strong>
+	<body>
+		<h1>Found <%=@issue_count%> open issues across <%=@gem_list.count%> gems you depend on. Happy hacking!</h1>
 
-	<div id='accordion'>
-		<%= @html_content %>
-	</div>
-</body>
+		<div id='accordion'>
+			<%= @html_content %>
+		</div>
+	</body>
 </html>
