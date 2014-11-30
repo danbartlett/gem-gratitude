@@ -5,12 +5,11 @@ require 'erb'
 require 'redcarpet'
 
 # Initializes a Markdown parser
-@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, hard_wrap: true, fenced_code_blocks: true)
 
 # Format the issue body
 def summary(text)
-	text = @markdown.render(text)
-	text.gsub!(/(?:\n\r?|\r\n?)/, '<br>')
+	parsed = @markdown.render(text)
 end
 
 # Load Gemfile
