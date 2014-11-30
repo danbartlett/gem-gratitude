@@ -2,6 +2,18 @@ body {
 	font-family: 'Arial', sans-serif;
 	font-size: 0.9em;
 	color: #333;
+	margin: 3em;
+}
+
+h1.main_title {
+	margin-top: 1em 0 0.5em;
+}
+h1.main_title a {
+	font-size: 12px;
+}
+h3.sub_title {
+	color: #666;
+	margin-bottom: 2em;
 }
 
 .ui-accordion-header {
@@ -10,6 +22,8 @@ body {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 1px solid #ccc;
+	font-weight: normal;
+	color: #666;
 }
 .ui-accordion-content {
 	padding: 1em 4em;

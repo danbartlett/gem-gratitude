@@ -44,7 +44,7 @@ file = File.open('giveback.html', 'w')
 # Find all open issues via the GitHub API
 @html_content = ''
 @issue_count = 0
-@gem_list[0..3].each do |g|
+@gem_list.each do |g|
 	github_url = g[:homepage].split('/')
 	response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open")
 	json = JSON.parse(response.body)
