@@ -52,8 +52,9 @@ file = File.open('giveback.html', 'w')
 		puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues!"
 		json.each do |issue|
 			@issue_count += 1
-			@html_content << "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
-				"<div><strong><a href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a></strong><br><br>"\
+			@html_content <<
+				"<h3>[#{g[:name]}] #{issue['title']}</h3>"\
+				"<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
 				"#{summary(issue['body'])}</div>"
 		end
 	end

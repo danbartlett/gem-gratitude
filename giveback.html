@@ -1,0 +1,972 @@
+<html>
+	<head>
+		<title>gem-gratitude - Give back to the gems you depend on</title>
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script>$(function() { $( "#accordion" ).accordion({ heightStyle: "content" }); });</script>
+		<link rel="stylesheet" href="main.css">
+	</head>
+
+	<body>
+		<h1>Found 14 open issues across 56 gems you depend on. Happy hacking!</h1>
+
+		<div id='accordion'>
+			<h3>[better_errors] Black box at top is sometimes confusing</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/287">View on GitHub: Black box at top is sometimes confusing</a><p>I&#39;ve been working on the browserify-rails gem and we pass back errors from browserify to the asset pipeline and that bubbles up to better_errors. For this usage case, it is confusing because it is not clear that the top black error area can be scrolled. I&#39;ve had a number of people on my team at work ask and one issue on the browserify-rails gem was reported here:</p>
+
+<p><a href="https://github.com/browserify-rails/browserify-rails/issues/28">https://github.com/browserify-rails/browserify-rails/issues/28</a></p>
+
+<p>Would it be possible to make it more clear that the top can be scrolled? Unfortunately, OS X tends to hide the scrollbars which is very non-intuitive (confusing everyone including developers).</p>
+</div><h3>[better_errors] FiberError on Pry</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/286">View on GitHub: FiberError on Pry</a><p>I&#39;m using <code>pry</code>, and getting this error when you type something into the REPL:</p>
+
+<pre><code>FiberError (dead fiber called):
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/repl/pry.rb:48:in `resume&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/repl/pry.rb:48:in `block in send_input&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/repl/pry.rb:70:in `local&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/repl/pry.rb:47:in `send_input&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/error_page.rb:49:in `do_eval&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/middleware.rb:132:in `internal_call&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/middleware.rb:75:in `better_errors_call&#39;
+01:11:50 web.1    |   better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call&#39;
+01:11:50 web.1    |   actionpack (4.0.11) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+01:11:50 web.1    |   actionpack (4.0.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+01:11:50 web.1    |   railties (4.0.11) lib/rails/rack/logger.rb:38:in `call_app&#39;
+01:11:50 web.1    |   railties (4.0.11) lib/rails/rack/logger.rb:22:in `call&#39;
+01:11:50 web.1    |   quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets&#39;
+01:11:50 web.1    |   actionpack (4.0.11) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+01:11:50 web.1    |   activesupport (4.0.11) lib/active_support/cache/strategy/local_cache.rb:83:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+01:11:50 web.1    |   /Users/shu/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/bundler/gems/raven-ruby-d236bc9ee24d/lib/raven/rack.rb:59:in `call&#39;
+01:11:50 web.1    |   rack-mini-profiler (0.9.1) lib/mini_profiler/profiler.rb:300:in `call&#39;
+01:11:50 web.1    |   railties (4.0.11) lib/rails/engine.rb:511:in `call&#39;
+01:11:50 web.1    |   railties (4.0.11) lib/rails/application.rb:97:in `call&#39;
+01:11:50 web.1    |   railties (4.0.11) lib/rails/railtie/configurable.rb:30:in `method_missing&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/static.rb:119:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/static.rb:119:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/static.rb:119:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/deflater.rb:25:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/lint.rb:49:in `_call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/lint.rb:37:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/showexceptions.rb:24:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/commonlogger.rb:33:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/chunked.rb:43:in `call&#39;
+01:11:50 web.1    |   rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+01:11:50 web.1    |   unicorn (4.6.3) lib/unicorn/http_server.rb:552:in `process_client&#39;
+01:11:50 web.1    |   unicorn (4.6.3) lib/unicorn/http_server.rb:632:in `worker_loop&#39;
+01:11:50 web.1    |   newrelic_rpm (3.7.3.199) lib/new_relic/agent/instrumentation/unicorn_instrumentation.rb:22:in `call&#39;
+01:11:50 web.1    |   newrelic_rpm (3.7.3.199) lib/new_relic/agent/instrumentation/unicorn_instrumentation.rb:22:in `block (4 levels) in &lt;top (required)&gt;&#39;
+01:11:50 web.1    |   unicorn (4.6.3) lib/unicorn/http_server.rb:500:in `spawn_missing_workers&#39;
+01:11:50 web.1    |   unicorn (4.6.3) lib/unicorn/http_server.rb:142:in `start&#39;
+01:11:50 web.1    |   unicorn (4.6.3) bin/unicorn:126:in `&lt;top (required)&gt;&#39;
+01:11:50 web.1    |   /Users/shu/.rbenv/versions/2.1.4/bin/unicorn:23:in `load&#39;
+01:11:50 web.1    |   /Users/shu/.rbenv/versions/2.1.4/bin/unicorn:23:in `&lt;main&gt;&#39;
+</code></pre>
+
+<p>Gem versions:</p>
+
+<ul>
+<li><code>better_errors</code>: 2.0.0</li>
+<li><code>pry</code>: 0.10.1</li>
+<li><code>binding_of_caller</code>: 0.7.2</li>
+<li><code>rails</code>: 4.0.11</li>
+</ul>
+
+<p>Other notes:</p>
+
+<ul>
+<li>Not using any other <code>pry-*</code> gems</li>
+<li>My <code>.pryrc</code> is empty</li>
+<li>Everything works fine if I turn of <code>use_pry!</code></li>
+</ul>
+
+<p>Any other information I should provide?</p>
+</div><h3>[better_errors] Can't see Application Frames</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/285">View on GitHub: Can't see Application Frames</a><p>Help, I can&#39;t access my code from better errors. This is what it looks like:
+<img src="https://cloud.githubusercontent.com/assets/6855556/4817626/a97146d8-5eea-11e4-8d1f-190988345122.png" alt="screen shot 2014-10-28 at 2 36 31 pm"></p>
+</div><h3>[better_errors] Sass compilation error shows incorrect file when working with imported files.</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/283">View on GitHub: Sass compilation error shows incorrect file when working with imported files.</a><p>Often times, SASS code is spread scross a number of files. I have a styles.scss which contains</p>
+
+<pre><code>@import &#39;path/to/my-mixin&#39;
+@import &#39;path/to/my-other-mixin&#39;
+</code></pre>
+
+<p>When compilation of <em>my-mixin.scss fails, better</em>errors shows an error message along the  lines of:</p>
+
+<blockquote>
+<p>Sass error in styles.scss on line 41</p>
+</blockquote>
+
+<p>This is a problem because it is impossible to know which imported mixin contains the error and if the line number is even correct.</p>
+</div><h3>[better_errors] Remove rails stack trace?</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/281">View on GitHub: Remove rails stack trace?</a><p>Greetings,</p>
+
+<p>Is there some method by which I can remove the Rails centric parts of the stack trace and only show &quot;my&quot; application parts?</p>
+
+<p>-daniel</p>
+</div><h3>[better_errors] Is there a problem if i usse anothe middleware?</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/278">View on GitHub: Is there a problem if i usse anothe middleware?</a><p>I have a middleware to change apartments in database, but better errors behave funny when i use it, if this is not a well know issue i will give more details.</p>
+
+<pre><code>config.middleware.use &#39;Apartment::Elevators::Subdomain&#39;
+</code></pre>
+</div><h3>[better_errors] Add Error backtrace if within the Application Frame</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/277">View on GitHub: Add Error backtrace if within the Application Frame</a><p>I have an application controller with a <code>rescue_from</code> clause that catches a custom error. </p>
+
+<p>However the Application Frames tab is only showing one single line, the current one, and I must manually explore the backtrace_locations within the live shell. </p>
+
+<p>I understand that with <code>rescue_from</code> the exception object might not be available, so the implementation might be tricky. </p>
+
+<p>I would be happy even with a dirty hack enabling me to manually add the line to the Application Frames of the error page, but maybe that is another type of feature request?</p>
+</div><h3>[better_errors] Conflict with web_console and better_errors on Rails4.2.0.beta1</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/272">View on GitHub: Conflict with web_console and better_errors on Rails4.2.0.beta1</a><p>After having web<em>console and better</em>errors &quot;2.0.0&quot; installed and ran db:create the following trace was drop to the console:</p>
+
+<pre><code>$ be rake db:create
+/Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:6: [BUG] Segmentation fault at 0x007fff55a5dff8
+ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
+
+-- Crash Report log information --------------------------------------------
+   See Crash Report log file under the one of following:
+     * ~/Library/Logs/CrashReporter
+     * /Library/Logs/CrashReporter
+     * ~/Library/Logs/DiagnosticReports
+     * /Library/Logs/DiagnosticReports
+   for more details.
+
+-- Control frame information -----------------------------------------------
+c:8608 p:---- s:31555 e:001554 CFUNC  :caller_locations
+c:8607 p:0007 s:31552 e:001551 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:6 [FINISH]
+c:8606 p:---- s:31548 e:001547 CFUNC  :call
+c:8605 p:0081 s:31544 e:001543 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8604 p:0041 s:31541 e:001540 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8603 p:---- s:31537 e:001536 CFUNC  :call
+c:8602 p:0081 s:31533 e:001532 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8601 p:0041 s:31530 e:001529 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8600 p:---- s:31526 e:001525 CFUNC  :call
+c:8599 p:0081 s:31522 e:001521 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8598 p:0041 s:31519 e:001518 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8597 p:---- s:31515 e:001514 CFUNC  :call
+c:8596 p:0081 s:31511 e:001510 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8595 p:0041 s:31508 e:001507 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8594 p:---- s:31504 e:001503 CFUNC  :call
+c:8593 p:0081 s:31500 e:001499 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8592 p:0041 s:31497 e:001496 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8591 p:---- s:31493 e:001492 CFUNC  :call
+c:8590 p:0081 s:31489 e:001488 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8589 p:0041 s:31486 e:001485 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8588 p:---- s:31482 e:001481 CFUNC  :call
+c:8587 p:0081 s:31478 e:001477 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8586 p:0041 s:31475 e:001474 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8585 p:---- s:31471 e:001470 CFUNC  :call
+c:8584 p:0081 s:31467 e:001466 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8583 p:0041 s:31464 e:001463 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8582 p:---- s:31460 e:001459 CFUNC  :call
+c:8581 p:0081 s:31456 e:001455 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8580 p:0041 s:31453 e:001452 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+c:8579 p:---- s:31449 e:001448 CFUNC  :call
+c:8578 p:0081 s:31445 e:001444 LAMBDA /Users/pablo/.rvm/gems/ruby-2.1.2/gems/web-console-2.0.0.beta3/lib/web_console/exception_extension.rb:15 [FINISH]
+c:8577 p:0041 s:31442 e:001441 METHOD /Users/pablo/.rvm/gems/ruby-2.1.2/gems/better_errors-2.0.0/lib/better_errors/exception_extension.rb:10 [FINISH]
+</code></pre>
+
+<p>The logs repints until a possible ruby bug appear. </p>
+
+<pre><code>Process:               ruby [37730]
+Path:                  /Users/USER/*/ruby
+Identifier:            ruby
+Version:               ???
+Code Type:             X86-64 (Native)
+Parent Process:        bash [25012]
+Responsible:           iTerm [25006]
+User ID:               501
+
+Date/Time:             2014-09-07 11:16:37.115 +0200
+OS Version:            Mac OS X 10.10 (14A343f)
+Report Version:        11
+Anonymous UUID:        CA0B2AF0-3A81-1DAB-CC79-F05723169B05
+
+Sleep/Wake UUID:       FA32244C-F34A-4B85-BF58-0935DB6926FB
+
+Time Awake Since Boot: 86000 seconds
+
+Crashed Thread:        0  Dispatch queue: com.apple.main-thread
+
+Exception Type:        EXC_BAD_ACCESS (SIGABRT)
+Exception Codes:       KERN_PROTECTION_FAILURE at 0x00007fff55a5dff8
+
+VM Regions Near 0x7fff55a5dff8:
+    MALLOC_SMALL           00007fc059800000-00007fc05b800000 [ 32.0M] rw-/rwx SM=PRV  
+--&gt; Stack                  00007fff5225e000-00007fff55a5e000 [ 56.0M] ---/rwx SM=NUL  
+    Stack                  00007fff55a5e000-00007fff5625e000 [ 8192K] rw-/rwx SM=COW  
+
+Application Specific Information:
+abort() called
+
+Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib          0x00007fff8fb6a282 __pthread_kill + 10
+1   libsystem_c.dylib               0x00007fff909f5b73 abort + 129
+2   ruby                            0x0000000109ade249 rb_bug + 185
+3   ruby                            0x0000000109bab119 sigsegv + 153
+4   libsystem_platform.dylib        0x00007fff8b210f1a _sigtramp + 26
+5   libsystem_malloc.dylib          0x00007fff8b4f0c6f large_malloc + 98
+6   libsystem_malloc.dylib          0x00007fff8b4ef3a5 szone_malloc_should_clear + 1426
+7   libsystem_malloc.dylib          0x00007fff8b4ee877 malloc_zone_malloc + 71
+8   libsystem_malloc.dylib          0x00007fff8b4ed395 malloc + 42
+9   ruby                            0x0000000109aff376 objspace_xmalloc + 86
+10  ruby                            0x0000000109c2841f backtrace_object + 255
+11  ruby                            0x0000000109c29d52 vm_backtrace_to_ary + 34
+12  ruby                            0x0000000109c293d0 rb_f_caller_locations + 64
+13  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+14  ruby                            0x0000000109c0f213 vm_exec_core + 12643
+15  ruby                            0x0000000109c1ccf1 vm_exec + 129
+16  ruby                            0x0000000109c2356e vm_call0_body + 830
+17  ruby                            0x0000000109c186f3 rb_vm_call + 51
+18  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+19  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+20  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+21  ruby                            0x0000000109c1ccf1 vm_exec + 129
+22  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+23  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+24  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+25  ruby                            0x0000000109c2602a vm_call_method + 1098
+26  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+27  ruby                            0x0000000109c1ccf1 vm_exec + 129
+28  ruby                            0x0000000109c2356e vm_call0_body + 830
+29  ruby                            0x0000000109c186f3 rb_vm_call + 51
+30  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+31  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+32  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+33  ruby                            0x0000000109c1ccf1 vm_exec + 129
+34  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+35  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+36  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+37  ruby                            0x0000000109c2602a vm_call_method + 1098
+38  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+39  ruby                            0x0000000109c1ccf1 vm_exec + 129
+40  ruby                            0x0000000109c2356e vm_call0_body + 830
+41  ruby                            0x0000000109c186f3 rb_vm_call + 51
+42  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+43  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+44  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+45  ruby                            0x0000000109c1ccf1 vm_exec + 129
+46  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+47  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+48  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+49  ruby                            0x0000000109c2602a vm_call_method + 1098
+50  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+51  ruby                            0x0000000109c1ccf1 vm_exec + 129
+52  ruby                            0x0000000109c2356e vm_call0_body + 830
+53  ruby                            0x0000000109c186f3 rb_vm_call + 51
+54  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+55  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+56  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+57  ruby                            0x0000000109c1ccf1 vm_exec + 129
+58  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+59  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+60  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+61  ruby                            0x0000000109c2602a vm_call_method + 1098
+62  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+63  ruby                            0x0000000109c1ccf1 vm_exec + 129
+64  ruby                            0x0000000109c2356e vm_call0_body + 830
+65  ruby                            0x0000000109c186f3 rb_vm_call + 51
+66  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+67  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+68  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+69  ruby                            0x0000000109c1ccf1 vm_exec + 129
+70  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+71  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+72  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+73  ruby                            0x0000000109c2602a vm_call_method + 1098
+74  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+75  ruby                            0x0000000109c1ccf1 vm_exec + 129
+76  ruby                            0x0000000109c2356e vm_call0_body + 830
+77  ruby                            0x0000000109c186f3 rb_vm_call + 51
+78  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+79  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+80  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+81  ruby                            0x0000000109c1ccf1 vm_exec + 129
+82  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+83  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+84  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+85  ruby                            0x0000000109c2602a vm_call_method + 1098
+86  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+87  ruby                            0x0000000109c1ccf1 vm_exec + 129
+88  ruby                            0x0000000109c2356e vm_call0_body + 830
+89  ruby                            0x0000000109c186f3 rb_vm_call + 51
+90  ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+91  ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+92  ruby                            0x0000000109c0f058 vm_exec_core + 12200
+93  ruby                            0x0000000109c1ccf1 vm_exec + 129
+94  ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+95  ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+96  ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+97  ruby                            0x0000000109c2602a vm_call_method + 1098
+98  ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+99  ruby                            0x0000000109c1ccf1 vm_exec + 129
+100 ruby                            0x0000000109c2356e vm_call0_body + 830
+101 ruby                            0x0000000109c186f3 rb_vm_call + 51
+102 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+103 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+104 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+105 ruby                            0x0000000109c1ccf1 vm_exec + 129
+106 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+107 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+108 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+109 ruby                            0x0000000109c2602a vm_call_method + 1098
+110 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+111 ruby                            0x0000000109c1ccf1 vm_exec + 129
+112 ruby                            0x0000000109c2356e vm_call0_body + 830
+113 ruby                            0x0000000109c186f3 rb_vm_call + 51
+114 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+115 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+116 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+117 ruby                            0x0000000109c1ccf1 vm_exec + 129
+118 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+119 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+120 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+121 ruby                            0x0000000109c2602a vm_call_method + 1098
+122 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+123 ruby                            0x0000000109c1ccf1 vm_exec + 129
+124 ruby                            0x0000000109c2356e vm_call0_body + 830
+125 ruby                            0x0000000109c186f3 rb_vm_call + 51
+126 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+127 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+128 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+129 ruby                            0x0000000109c1ccf1 vm_exec + 129
+130 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+131 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+132 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+133 ruby                            0x0000000109c2602a vm_call_method + 1098
+134 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+135 ruby                            0x0000000109c1ccf1 vm_exec + 129
+136 ruby                            0x0000000109c2356e vm_call0_body + 830
+137 ruby                            0x0000000109c186f3 rb_vm_call + 51
+138 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+139 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+140 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+141 ruby                            0x0000000109c1ccf1 vm_exec + 129
+142 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+143 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+144 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+145 ruby                            0x0000000109c2602a vm_call_method + 1098
+146 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+147 ruby                            0x0000000109c1ccf1 vm_exec + 129
+148 ruby                            0x0000000109c2356e vm_call0_body + 830
+149 ruby                            0x0000000109c186f3 rb_vm_call + 51
+150 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+151 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+152 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+153 ruby                            0x0000000109c1ccf1 vm_exec + 129
+154 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+155 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+156 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+157 ruby                            0x0000000109c2602a vm_call_method + 1098
+158 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+159 ruby                            0x0000000109c1ccf1 vm_exec + 129
+160 ruby                            0x0000000109c2356e vm_call0_body + 830
+161 ruby                            0x0000000109c186f3 rb_vm_call + 51
+162 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+163 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+164 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+165 ruby                            0x0000000109c1ccf1 vm_exec + 129
+166 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+167 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+168 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+169 ruby                            0x0000000109c2602a vm_call_method + 1098
+170 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+171 ruby                            0x0000000109c1ccf1 vm_exec + 129
+172 ruby                            0x0000000109c2356e vm_call0_body + 830
+173 ruby                            0x0000000109c186f3 rb_vm_call + 51
+174 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+175 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+176 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+177 ruby                            0x0000000109c1ccf1 vm_exec + 129
+178 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+179 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+180 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+181 ruby                            0x0000000109c2602a vm_call_method + 1098
+182 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+183 ruby                            0x0000000109c1ccf1 vm_exec + 129
+184 ruby                            0x0000000109c2356e vm_call0_body + 830
+185 ruby                            0x0000000109c186f3 rb_vm_call + 51
+186 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+187 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+188 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+189 ruby                            0x0000000109c1ccf1 vm_exec + 129
+190 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+191 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+192 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+193 ruby                            0x0000000109c2602a vm_call_method + 1098
+194 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+195 ruby                            0x0000000109c1ccf1 vm_exec + 129
+196 ruby                            0x0000000109c2356e vm_call0_body + 830
+197 ruby                            0x0000000109c186f3 rb_vm_call + 51
+198 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+199 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+200 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+201 ruby                            0x0000000109c1ccf1 vm_exec + 129
+202 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+203 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+204 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+205 ruby                            0x0000000109c2602a vm_call_method + 1098
+206 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+207 ruby                            0x0000000109c1ccf1 vm_exec + 129
+208 ruby                            0x0000000109c2356e vm_call0_body + 830
+209 ruby                            0x0000000109c186f3 rb_vm_call + 51
+210 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+211 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+212 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+213 ruby                            0x0000000109c1ccf1 vm_exec + 129
+214 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+215 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+216 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+217 ruby                            0x0000000109c2602a vm_call_method + 1098
+218 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+219 ruby                            0x0000000109c1ccf1 vm_exec + 129
+220 ruby                            0x0000000109c2356e vm_call0_body + 830
+221 ruby                            0x0000000109c186f3 rb_vm_call + 51
+222 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+223 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+224 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+225 ruby                            0x0000000109c1ccf1 vm_exec + 129
+226 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+227 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+228 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+229 ruby                            0x0000000109c2602a vm_call_method + 1098
+230 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+231 ruby                            0x0000000109c1ccf1 vm_exec + 129
+232 ruby                            0x0000000109c2356e vm_call0_body + 830
+233 ruby                            0x0000000109c186f3 rb_vm_call + 51
+234 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+235 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+236 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+237 ruby                            0x0000000109c1ccf1 vm_exec + 129
+238 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+239 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+240 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+241 ruby                            0x0000000109c2602a vm_call_method + 1098
+242 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+243 ruby                            0x0000000109c1ccf1 vm_exec + 129
+244 ruby                            0x0000000109c2356e vm_call0_body + 830
+245 ruby                            0x0000000109c186f3 rb_vm_call + 51
+246 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+247 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+248 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+249 ruby                            0x0000000109c1ccf1 vm_exec + 129
+250 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+251 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+252 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+253 ruby                            0x0000000109c2602a vm_call_method + 1098
+254 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+255 ruby                            0x0000000109c1ccf1 vm_exec + 129
+256 ruby                            0x0000000109c2356e vm_call0_body + 830
+257 ruby                            0x0000000109c186f3 rb_vm_call + 51
+258 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+259 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+260 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+261 ruby                            0x0000000109c1ccf1 vm_exec + 129
+262 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+263 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+264 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+265 ruby                            0x0000000109c2602a vm_call_method + 1098
+266 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+267 ruby                            0x0000000109c1ccf1 vm_exec + 129
+268 ruby                            0x0000000109c2356e vm_call0_body + 830
+269 ruby                            0x0000000109c186f3 rb_vm_call + 51
+270 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+271 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+272 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+273 ruby                            0x0000000109c1ccf1 vm_exec + 129
+274 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+275 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+276 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+277 ruby                            0x0000000109c2602a vm_call_method + 1098
+278 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+279 ruby                            0x0000000109c1ccf1 vm_exec + 129
+280 ruby                            0x0000000109c2356e vm_call0_body + 830
+281 ruby                            0x0000000109c186f3 rb_vm_call + 51
+282 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+283 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+284 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+285 ruby                            0x0000000109c1ccf1 vm_exec + 129
+286 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+287 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+288 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+289 ruby                            0x0000000109c2602a vm_call_method + 1098
+290 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+291 ruby                            0x0000000109c1ccf1 vm_exec + 129
+292 ruby                            0x0000000109c2356e vm_call0_body + 830
+293 ruby                            0x0000000109c186f3 rb_vm_call + 51
+294 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+295 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+296 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+297 ruby                            0x0000000109c1ccf1 vm_exec + 129
+298 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+299 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+300 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+301 ruby                            0x0000000109c2602a vm_call_method + 1098
+302 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+303 ruby                            0x0000000109c1ccf1 vm_exec + 129
+304 ruby                            0x0000000109c2356e vm_call0_body + 830
+305 ruby                            0x0000000109c186f3 rb_vm_call + 51
+306 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+307 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+308 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+309 ruby                            0x0000000109c1ccf1 vm_exec + 129
+310 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+311 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+312 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+313 ruby                            0x0000000109c2602a vm_call_method + 1098
+314 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+315 ruby                            0x0000000109c1ccf1 vm_exec + 129
+316 ruby                            0x0000000109c2356e vm_call0_body + 830
+317 ruby                            0x0000000109c186f3 rb_vm_call + 51
+318 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+319 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+320 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+321 ruby                            0x0000000109c1ccf1 vm_exec + 129
+322 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+323 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+324 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+325 ruby                            0x0000000109c2602a vm_call_method + 1098
+326 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+327 ruby                            0x0000000109c1ccf1 vm_exec + 129
+328 ruby                            0x0000000109c2356e vm_call0_body + 830
+329 ruby                            0x0000000109c186f3 rb_vm_call + 51
+330 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+331 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+332 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+333 ruby                            0x0000000109c1ccf1 vm_exec + 129
+334 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+335 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+336 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+337 ruby                            0x0000000109c2602a vm_call_method + 1098
+338 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+339 ruby                            0x0000000109c1ccf1 vm_exec + 129
+340 ruby                            0x0000000109c2356e vm_call0_body + 830
+341 ruby                            0x0000000109c186f3 rb_vm_call + 51
+342 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+343 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+344 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+345 ruby                            0x0000000109c1ccf1 vm_exec + 129
+346 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+347 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+348 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+349 ruby                            0x0000000109c2602a vm_call_method + 1098
+350 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+351 ruby                            0x0000000109c1ccf1 vm_exec + 129
+352 ruby                            0x0000000109c2356e vm_call0_body + 830
+353 ruby                            0x0000000109c186f3 rb_vm_call + 51
+354 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+355 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+356 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+357 ruby                            0x0000000109c1ccf1 vm_exec + 129
+358 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+359 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+360 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+361 ruby                            0x0000000109c2602a vm_call_method + 1098
+362 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+363 ruby                            0x0000000109c1ccf1 vm_exec + 129
+364 ruby                            0x0000000109c2356e vm_call0_body + 830
+365 ruby                            0x0000000109c186f3 rb_vm_call + 51
+366 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+367 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+368 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+369 ruby                            0x0000000109c1ccf1 vm_exec + 129
+370 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+371 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+372 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+373 ruby                            0x0000000109c2602a vm_call_method + 1098
+374 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+375 ruby                            0x0000000109c1ccf1 vm_exec + 129
+376 ruby                            0x0000000109c2356e vm_call0_body + 830
+377 ruby                            0x0000000109c186f3 rb_vm_call + 51
+378 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+379 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+380 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+381 ruby                            0x0000000109c1ccf1 vm_exec + 129
+382 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+383 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+384 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+385 ruby                            0x0000000109c2602a vm_call_method + 1098
+386 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+387 ruby                            0x0000000109c1ccf1 vm_exec + 129
+388 ruby                            0x0000000109c2356e vm_call0_body + 830
+389 ruby                            0x0000000109c186f3 rb_vm_call + 51
+390 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+391 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+392 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+393 ruby                            0x0000000109c1ccf1 vm_exec + 129
+394 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+395 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+396 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+397 ruby                            0x0000000109c2602a vm_call_method + 1098
+398 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+399 ruby                            0x0000000109c1ccf1 vm_exec + 129
+400 ruby                            0x0000000109c2356e vm_call0_body + 830
+401 ruby                            0x0000000109c186f3 rb_vm_call + 51
+402 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+403 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+404 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+405 ruby                            0x0000000109c1ccf1 vm_exec + 129
+406 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+407 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+408 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+409 ruby                            0x0000000109c2602a vm_call_method + 1098
+410 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+411 ruby                            0x0000000109c1ccf1 vm_exec + 129
+412 ruby                            0x0000000109c2356e vm_call0_body + 830
+413 ruby                            0x0000000109c186f3 rb_vm_call + 51
+414 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+415 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+416 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+417 ruby                            0x0000000109c1ccf1 vm_exec + 129
+418 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+419 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+420 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+421 ruby                            0x0000000109c2602a vm_call_method + 1098
+422 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+423 ruby                            0x0000000109c1ccf1 vm_exec + 129
+424 ruby                            0x0000000109c2356e vm_call0_body + 830
+425 ruby                            0x0000000109c186f3 rb_vm_call + 51
+426 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+427 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+428 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+429 ruby                            0x0000000109c1ccf1 vm_exec + 129
+430 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+431 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+432 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+433 ruby                            0x0000000109c2602a vm_call_method + 1098
+434 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+435 ruby                            0x0000000109c1ccf1 vm_exec + 129
+436 ruby                            0x0000000109c2356e vm_call0_body + 830
+437 ruby                            0x0000000109c186f3 rb_vm_call + 51
+438 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+439 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+440 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+441 ruby                            0x0000000109c1ccf1 vm_exec + 129
+442 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+443 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+444 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+445 ruby                            0x0000000109c2602a vm_call_method + 1098
+446 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+447 ruby                            0x0000000109c1ccf1 vm_exec + 129
+448 ruby                            0x0000000109c2356e vm_call0_body + 830
+449 ruby                            0x0000000109c186f3 rb_vm_call + 51
+450 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+451 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+452 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+453 ruby                            0x0000000109c1ccf1 vm_exec + 129
+454 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+455 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+456 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+457 ruby                            0x0000000109c2602a vm_call_method + 1098
+458 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+459 ruby                            0x0000000109c1ccf1 vm_exec + 129
+460 ruby                            0x0000000109c2356e vm_call0_body + 830
+461 ruby                            0x0000000109c186f3 rb_vm_call + 51
+462 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+463 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+464 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+465 ruby                            0x0000000109c1ccf1 vm_exec + 129
+466 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+467 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+468 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+469 ruby                            0x0000000109c2602a vm_call_method + 1098
+470 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+471 ruby                            0x0000000109c1ccf1 vm_exec + 129
+472 ruby                            0x0000000109c2356e vm_call0_body + 830
+473 ruby                            0x0000000109c186f3 rb_vm_call + 51
+474 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+475 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+476 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+477 ruby                            0x0000000109c1ccf1 vm_exec + 129
+478 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+479 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+480 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+481 ruby                            0x0000000109c2602a vm_call_method + 1098
+482 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+483 ruby                            0x0000000109c1ccf1 vm_exec + 129
+484 ruby                            0x0000000109c2356e vm_call0_body + 830
+485 ruby                            0x0000000109c186f3 rb_vm_call + 51
+486 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+487 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+488 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+489 ruby                            0x0000000109c1ccf1 vm_exec + 129
+490 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+491 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+492 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+493 ruby                            0x0000000109c2602a vm_call_method + 1098
+494 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+495 ruby                            0x0000000109c1ccf1 vm_exec + 129
+496 ruby                            0x0000000109c2356e vm_call0_body + 830
+497 ruby                            0x0000000109c186f3 rb_vm_call + 51
+498 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+499 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+500 ruby                            0x0000000109c0f058 vm_exec_core + 12200
+501 ruby                            0x0000000109c1ccf1 vm_exec + 129
+502 ruby                            0x0000000109c1bf0a vm_invoke_proc + 186
+503 ruby                            0x0000000109c24226 vm_call_bmethod_body + 710
+504 ruby                            0x0000000109c26aa1 vm_call_bmethod + 113
+505 ruby                            0x0000000109c2602a vm_call_method + 1098
+506 ruby                            0x0000000109c0f5b1 vm_exec_core + 13569
+507 ruby                            0x0000000109c1ccf1 vm_exec + 129
+508 ruby                            0x0000000109c2356e vm_call0_body + 830
+509 ruby                            0x0000000109c186f3 rb_vm_call + 51
+510 ruby                            0x0000000109aed3e1 rb_method_call_with_block + 321
+511 ruby                            0x0000000109c2660b vm_call_cfunc + 1067
+
+Thread 1:: ruby-timer-thr
+0   libsystem_kernel.dylib          0x00007fff8fb6b5be poll + 10
+1   libsystem_pthread.dylib         0x00007fff87b0b2fc _pthread_body + 131
+2   libsystem_pthread.dylib         0x00007fff87b0b279 _pthread_start + 176
+3   libsystem_pthread.dylib         0x00007fff87b094b1 thread_start + 13
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x0000000000000006  rcx: 0x00007fc04c8f2718  rdx: 0x0000000000000000
+  rdi: 0x0000000000000b23  rsi: 0x0000000000000006  rbp: 0x00007fc04c8f2740  rsp: 0x00007fc04c8f2718
+   r8: 0x00007fc04c8f2590   r9: 0x00007fff7205e300  r10: 0x0000000008000000  r11: 0x0000000000000206
+  r12: 0x000000010a32d000  r13: 0x000000010a32d000  r14: 0x00007fff7205e300  r15: 0x0000000000000000
+  rip: 0x00007fff8fb6a282  rfl: 0x0000000000000206  cr2: 0x00007fff73656fd8
+
+Logical CPU:     0
+Error Code:      0x02000148
+Trap Number:     133
+
+
+Binary Images:
+       0x1099a2000 -        0x10a1d5fe7 +ruby (???) &lt;13BCBA34-048B-3C25-BF68-0AF96F3655C0&gt; /Users/USER/*/ruby
+       0x10a488000 -        0x10a48cff7 +sqlite3_native.bundle (0) &lt;14171EAC-B13D-3393-8962-7028D4B666EB&gt; /Users/USER/*/sqlite3_native.bundle
+       0x10a50f000 -        0x10a513fff +puma_http11.bundle (0) &lt;CCA8C6A3-1CEB-3864-AEBF-15B63AC4DB3F&gt; /Users/USER/*/puma_http11.bundle
+       0x10a517000 -        0x10a54cff7  libssl.0.9.8.dylib (52) &lt;4DFCB716-E48E-35B9-B1D3-CDF4B7589934&gt; /usr/lib/libssl.0.9.8.dylib
+       0x10a562000 -        0x10a562ff7 +debug_inspector.bundle (0) &lt;279B3D7B-B63D-31C7-8A1D-CBF15E4DEF69&gt; /Users/USER/*/debug_inspector.bundle
+       0x10a565000 -        0x10a569ff7 +byebug.bundle (0) &lt;BDF65F83-35C9-30DF-99FA-A579078B06D9&gt; /Users/USER/*/byebug.bundle
+       0x10ae00000 -        0x10b001ff7 +nokogiri.bundle (0) &lt;CF4A2D34-D8B2-3746-8BC3-C57C2F69998E&gt; /Users/USER/*/nokogiri.bundle
+    0x7fff624d8000 -     0x7fff6250e837  dyld (353.2.1) &lt;D1B75623-312E-30C7-A2AC-5C2E5D18453A&gt; /usr/lib/dyld
+    0x7fff810ea000 -     0x7fff810eaff7  libunc.dylib (29) &lt;7F235676-CF50-35DB-A903-9B2CF8F122FC&gt; /usr/lib/system/libunc.dylib
+    0x7fff810f4000 -     0x7fff812d9267  libobjc.A.dylib (646) &lt;3B60CD90-74A2-3A5D-9686-B0772159792A&gt; /usr/lib/libobjc.A.dylib
+    0x7fff81e18000 -     0x7fff81e23fff  libcommonCrypto.dylib (60061) &lt;94E72318-5DAB-3BE3-888F-836C2F120BAB&gt; /usr/lib/system/libcommonCrypto.dylib
+    0x7fff820ac000 -     0x7fff82122fe7  libcorecrypto.dylib (233.1.2) &lt;1922938D-9078-374D-9E31-2BBA67C60CE8&gt; /usr/lib/system/libcorecrypto.dylib
+    0x7fff82b93000 -     0x7fff82c76fff  libcrypto.0.9.8.dylib (52) &lt;049AEBE8-613F-3275-94DB-BFA3627386C3&gt; /usr/lib/libcrypto.0.9.8.dylib
+    0x7fff82de5000 -     0x7fff82e10fff  libc++abi.dylib (125) &lt;88A22A0F-87C6-3002-BFBA-AC0F2808B8B9&gt; /usr/lib/libc++abi.dylib
+    0x7fff82e11000 -     0x7fff82e15ff7  libsystem_stats.dylib (163.1.2.0.1) &lt;81BF4DDD-3D69-3086-9E7D-0FE1A4638A2D&gt; /usr/lib/system/libsystem_stats.dylib
+    0x7fff83879000 -     0x7fff839bbff7  libsqlite3.dylib (166) &lt;58816A70-975E-38D4-956D-005172FEACE4&gt; /usr/lib/libsqlite3.dylib
+    0x7fff85a4e000 -     0x7fff85a50ff7  libsystem_sandbox.dylib (358.1.1) &lt;4394DFEA-59D4-32C4-9507-52218044546B&gt; /usr/lib/system/libsystem_sandbox.dylib
+    0x7fff86c35000 -     0x7fff86c36fff  libffi.dylib (18.1) &lt;0F6C6A4D-1210-3585-8DA1-B8A94B9924A5&gt; /usr/lib/libffi.dylib
+    0x7fff86c39000 -     0x7fff86c39ff7  libkeymgr.dylib (28) &lt;B474F768-4DCD-38F2-B23B-CCADA5BC4733&gt; /usr/lib/system/libkeymgr.dylib
+    0x7fff86ed5000 -     0x7fff86f05fff  libsystem_m.dylib (3086.1) &lt;730E0317-9C81-3967-93C6-C0D1E69EBA75&gt; /usr/lib/system/libsystem_m.dylib
+    0x7fff87024000 -     0x7fff87026ff7  libsystem_coreservices.dylib (9) &lt;F8E20800-4CD9-3FC4-8D57-D416ED7F1715&gt; /usr/lib/system/libsystem_coreservices.dylib
+    0x7fff87b08000 -     0x7fff87b11fff  libsystem_pthread.dylib (105.1.4) &lt;AB3598CA-51F5-34E6-97FB-A3C38518EAAD&gt; /usr/lib/system/libsystem_pthread.dylib
+    0x7fff87be5000 -     0x7fff87beaff7  libunwind.dylib (35.3) &lt;614BCA70-D003-3280-B7E9-9EBE8168901F&gt; /usr/lib/system/libunwind.dylib
+    0x7fff88725000 -     0x7fff88817ff7  libiconv.2.dylib (42) &lt;2A06D02F-8B76-3864-8D96-64EF5B40BC6C&gt; /usr/lib/libiconv.2.dylib
+    0x7fff888b6000 -     0x7fff888b7fff  libDiagnosticMessagesClient.dylib (100) &lt;2EE8E436-5CDC-34C5-9959-5BA218D507FB&gt; /usr/lib/libDiagnosticMessagesClient.dylib
+    0x7fff888d6000 -     0x7fff888d7ff7  libsystem_blocks.dylib (65) &lt;9A882651-F45E-39F4-8087-DD383B972A4D&gt; /usr/lib/system/libsystem_blocks.dylib
+    0x7fff88a8e000 -     0x7fff88a92fff  libcache.dylib (69) &lt;7FD09AC9-A856-3C05-919F-B4C194867C59&gt; /usr/lib/system/libcache.dylib
+    0x7fff88d23000 -     0x7fff88d4dfff  libdispatch.dylib (442.1.3) &lt;4387776F-80E8-3CC9-BA25-6F21C78E77C3&gt; /usr/lib/system/libdispatch.dylib
+    0x7fff88d4e000 -     0x7fff88da2fff  libc++.1.dylib (120) &lt;1B9530FD-989B-3174-BB1C-BDC159501710&gt; /usr/lib/libc++.1.dylib
+    0x7fff8a0b2000 -     0x7fff8a0dafff  libsystem_info.dylib (459) &lt;186259FF-C2EB-3B41-BD8B-FF2D1A3B1EF2&gt; /usr/lib/system/libsystem_info.dylib
+    0x7fff8a49d000 -     0x7fff8a49ffff  libsystem_configuration.dylib (699.1.4) &lt;940EDE2A-DD3B-38D1-8B2E-152652BB9C67&gt; /usr/lib/system/libsystem_configuration.dylib
+    0x7fff8a6b0000 -     0x7fff8a6b8ffb  libcopyfile.dylib (118.1.1) &lt;07CF8131-1263-3385-B341-011B52E3E3B5&gt; /usr/lib/system/libcopyfile.dylib
+    0x7fff8a799000 -     0x7fff8a7c9ff7  libncurses.5.4.dylib (44) &lt;F09809A4-53B9-3E91-A8FA-D3F584C03AA3&gt; /usr/lib/libncurses.5.4.dylib
+    0x7fff8b1d0000 -     0x7fff8b1d1ffb  libremovefile.dylib (35) &lt;CC9FB9A6-3FF9-3E3C-A9FD-48C27FADF9BA&gt; /usr/lib/system/libremovefile.dylib
+    0x7fff8b20c000 -     0x7fff8b214fff  libsystem_platform.dylib (63) &lt;730506E4-86FF-3DA5-9561-3C8281095C6B&gt; /usr/lib/system/libsystem_platform.dylib
+    0x7fff8b215000 -     0x7fff8b218ff7  libdyld.dylib (353.2.1) &lt;A9EF2DE4-6414-345E-A932-5C3DE641807C&gt; /usr/lib/system/libdyld.dylib
+    0x7fff8b219000 -     0x7fff8b233ff7  liblzma.5.dylib (7) &lt;1D03E875-A7C0-3028-814C-3C27F7B7C079&gt; /usr/lib/liblzma.5.dylib
+    0x7fff8b4e0000 -     0x7fff8b4e7ff7  libcompiler_rt.dylib (35) &lt;37984504-2822-3A47-AE2D-21D36868BA68&gt; /usr/lib/system/libcompiler_rt.dylib
+    0x7fff8b4ec000 -     0x7fff8b508ff7  libsystem_malloc.dylib (53.1.1) &lt;6CA8345F-9F16-3EFA-BD5C-07111DA4B21B&gt; /usr/lib/system/libsystem_malloc.dylib
+    0x7fff8bba9000 -     0x7fff8bbabff7  libutil.dylib (38) &lt;471AD65E-B86E-3C4A-8ABD-B8665A2BCE3F&gt; /usr/lib/libutil.dylib
+    0x7fff8c2e8000 -     0x7fff8c2eefff  libsystem_trace.dylib (72.1.3) &lt;1DE0F83B-44C6-3EBB-B8AD-0C44AC5BFEB1&gt; /usr/lib/system/libsystem_trace.dylib
+    0x7fff8c2ef000 -     0x7fff8c2f0fff  libSystem.B.dylib (1213) &lt;D74998DB-B951-3F79-91C9-2B01B6EA2DD8&gt; /usr/lib/libSystem.B.dylib
+    0x7fff8c2f1000 -     0x7fff8c2faff7  libsystem_notify.dylib (133.1.1) &lt;685AF096-8641-3EDA-B9AF-868F2DCFAE44&gt; /usr/lib/system/libsystem_notify.dylib
+    0x7fff8c7da000 -     0x7fff8c7ebff7  libz.1.dylib (55) &lt;88C7C7DE-04B8-316F-8B74-ACD9F3DE1AA1&gt; /usr/lib/libz.1.dylib
+    0x7fff8c7ec000 -     0x7fff8c7f1ff7  libmacho.dylib (862) &lt;FDF9F773-B611-3AD7-8A81-A9447ABB4985&gt; /usr/lib/system/libmacho.dylib
+    0x7fff8c893000 -     0x7fff8cc29ff7  com.apple.CoreFoundation (6.9 - 1151.11.1) &lt;6BBDE5D2-489D-334C-A649-38AC8BC47F20&gt; /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+    0x7fff8cd52000 -     0x7fff8cd58ff7  libsystem_networkextension.dylib (167.1.10) &lt;A1C89698-CD3A-3D61-90E1-3CFB6B904FA4&gt; /usr/lib/system/libsystem_networkextension.dylib
+    0x7fff8e37a000 -     0x7fff8e38bffb  libsystem_coretls.dylib (35) &lt;AD41764E-ADA5-3CFB-8443-41439243BDB8&gt; /usr/lib/system/libsystem_coretls.dylib
+    0x7fff8ef16000 -     0x7fff8ef17fff  com.apple.TrustEvaluationAgent (2.0 - 25) &lt;2D61A2C3-C83E-3A3F-8EC1-736DBEC250AB&gt; /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+    0x7fff8f3cf000 -     0x7fff8f3d7fff  libsystem_dnssd.dylib (561) &lt;BECD47C1-C29A-32F4-989E-A21EA25ACA46&gt; /usr/lib/system/libsystem_dnssd.dylib
+    0x7fff8faa2000 -     0x7fff8faa3fff  libsystem_secinit.dylib (18) &lt;601A1A96-B584-36E5-9B09-37F9E6CC1B7B&gt; /usr/lib/system/libsystem_secinit.dylib
+    0x7fff8faf6000 -     0x7fff8faf8ff7  libquarantine.dylib (76) &lt;979320D3-01E9-3033-AB73-9C2E349B9ECC&gt; /usr/lib/system/libquarantine.dylib
+    0x7fff8fb54000 -     0x7fff8fb71fff  libsystem_kernel.dylib (2782.1.1.1.1) &lt;F8879BCD-C5ED-30E8-B0ED-D79EDB9C126B&gt; /usr/lib/system/libsystem_kernel.dylib
+    0x7fff8fb72000 -     0x7fff8fb88ff7  libsystem_asl.dylib (267) &lt;CC54C8C6-2768-307F-8AB5-FC42CBD95DFA&gt; /usr/lib/system/libsystem_asl.dylib
+    0x7fff8fb89000 -     0x7fff8fb89ff7  liblaunch.dylib (559.1.15) &lt;36C7C4B7-7F0D-3A6F-A7C0-A19E0C79B6C5&gt; /usr/lib/system/liblaunch.dylib
+    0x7fff8fcf7000 -     0x7fff8fd2fffb  libsystem_network.dylib (411) &lt;89190E6E-BE64-3099-A8F1-365392C350BC&gt; /usr/lib/system/libsystem_network.dylib
+    0x7fff8fda5000 -     0x7fff8fdebff7  libauto.dylib (186) &lt;A260789B-D4D8-316A-9490-254767B8A5F1&gt; /usr/lib/libauto.dylib
+    0x7fff90744000 -     0x7fff9076cfff  libxpc.dylib (559.1.15) &lt;9C2A0ACA-7FCA-36CD-803B-CFBF698A36FC&gt; /usr/lib/system/libxpc.dylib
+    0x7fff907b2000 -     0x7fff90997ff3  libicucore.A.dylib (531.29) &lt;97DEB520-0B99-3BE6-A2E1-A639007D6D5B&gt; /usr/lib/libicucore.A.dylib
+    0x7fff90998000 -     0x7fff90a24fff  libsystem_c.dylib (1044.1.2) &lt;E6263290-E3D4-3F75-BF85-DE7C132EE7BB&gt; /usr/lib/system/libsystem_c.dylib
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 35529
+    thread_create: 1
+    thread_set_state: 297
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=96.6M resident=30.0M(31%) swapped_out_or_unallocated=66.7M(69%)
+Writable regions: Total=1.5G written=1.3G(89%) resident=1.4G(90%) swapped_out=0K(0%) unallocated=151.5M(10%)
+
+REGION TYPE                      VIRTUAL
+===========                      =======
+Dispatch continuations             8192K
+Kernel Alloc Once                     4K
+MALLOC                              1.5G
+MALLOC (admin)                       16K
+MALLOC_LARGE (reserved)             132K        reserved VM address space (unallocated)
+STACK GUARD                           4K
+Stack                              64.0M
+VM_ALLOCATE                          12K
+__DATA                             1916K
+__LINKEDIT                         71.4M
+__TEXT                             25.2M
+__UNICODE                           544K
+shared memory                         4K
+===========                      =======
+TOTAL                               1.7G
+TOTAL, minus reserved VM space      1.7G
+</code></pre>
+
+<p>Here is my Gemfile, using Ruby 2.1.2p95
+```ruby
+source &#39;<a href="https://rubygems.org">https://rubygems.org</a>&#39;</p>
+
+<p>gem &#39;rails&#39;, &#39;4.2.0.beta1&#39;
+gem &#39;sqlite3&#39;
+gem &#39;sass-rails&#39;, &#39;~&gt; 5.0.0.beta1&#39;
+gem &#39;uglifier&#39;, &#39;&gt;= 1.3.0&#39;
+gem &#39;coffee-rails&#39;, &#39;~&gt; 4.0.0&#39;
+gem &#39;jquery-rails&#39;
+gem &#39;jquery-ui-rails&#39;
+gem &#39;turbolinks&#39;
+gem &#39;jbuilder&#39;, &#39;~&gt; 2.0&#39;
+gem &#39;sdoc&#39;, &#39;~&gt; 0.4.0&#39;, group: :doc
+gem &#39;devise&#39;
+gem &#39;state<em>machine&#39;
+gem &#39;carrierwave&#39;
+gem &#39;rmagick&#39;, require: false
+gem &#39;will</em>paginate&#39;, &quot;~&gt; 3.0&quot;
+gem &#39;friendly_id&#39;, &quot;~&gt; 4.0.1&quot;
+gem &quot;faker&quot;</p>
+
+<h1>Oauth management</h1>
+
+<p>gem &#39;omniauth&#39;
+gem &#39;omniauth-facebook&#39;
+gem &#39;omniauth-google-oauth2&#39;
+gem &#39;fb_graph&#39;</p>
+
+<h1>Use Rails Html Sanitizer for HTML sanitization</h1>
+
+<p>gem &#39;rails-html-sanitizer&#39;, &#39;~&gt; 1.0&#39;</p>
+
+<p>group :development do
+  gem &#39;capistrano-rails&#39;, require: false
+  gem &#39;capistrano-bundler&#39;, require: false
+  gem &#39;capistrano-rvm&#39;, require: false
+  gem &#39;puma&#39; 
+end</p>
+
+<p>group :development, :test do
+  gem &#39;byebug&#39;
+  gem &#39;web-console&#39;, &#39;~&gt; 2.0.0.beta2&#39;
+  gem &#39;spring&#39;
+  gem &quot;rspec-rails&quot;
+  gem &quot;shoulda-matchers&quot;
+  gem &#39;factory<em>girl</em>rails&#39;
+  gem &#39;capybara&#39;
+  gem &#39;database_cleaner&#39;
+end</p>
+
+<p>group :test do
+  gem &#39;rspec-legacy<em>formatters&#39;, require:false
+  gem &#39;ci</em>reporter&#39;
+  gem &#39;simplecov&#39;, require: false
+  gem &#39;simplecov-rcov&#39;, require: false<br>
+end
+```</p>
+</div><h3>[better_errors] Remove max-height for hovering over error message?</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/269">View on GitHub: Remove max-height for hovering over error message?</a><p>Is there a reason there is a <a href="https://github.com/charliesome/better_errors/commit/e01dc40aaea8d285df78e5d7160f5f1744c69e47#diff-afbce167ff58bb13eb0c0eac0209fa3fR169">max-height for hovering over the error message</a>? In my particular case, the error messages have several lines in them, so I can&#39;t see anything below about 5 lines.</p>
+
+<p>If you hover over the message, obviously, you want to see everything you can, so why limit it to a max height? There is already a <a href="https://github.com/charliesome/better_errors/commit/e01dc40aaea8d285df78e5d7160f5f1744c69e47#diff-afbce167ff58bb13eb0c0eac0209fa3fR183">max-height set for non-hovering</a>. So maybe it would be useful to not have a limit for hovering?</p>
+
+<p>I temporarily installed the <a href="https://chrome.google.com/webstore/detail/stylebot/oiaejidbmkiecgbjeifoejpgmdaleoha?hl=en">stylebot chrome extension</a> and added a global stylesheet, but would love to not have to do this.</p>
+
+<p>Thanks</p>
+</div><h3>[better_errors] Add ability to specify multiple editors. A link for each editor is rendered.</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/pull/268">View on GitHub: Add ability to specify multiple editors. A link for each editor is rendered.</a><p>@charliesome  My goal was to submit this with minimal code changes (easy to review) and preserve backwards compatibility so that users would not need to change their BetterErrors config. If you are interested in merging this then I&#39;d like to continue develop the multiple-editor support. Thanks for the great gem.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/29266/4099182/686d332c-3050-11e4-81e1-4c4e86431c04.jpg" alt="better-errors-multiple-editors"></p>
+
+<ul>
+<li>Support multiple editors.</li>
+<li>Use original link when only 1 editor is specified.</li>
+<li>Update existing specs.</li>
+<li>Rename methods to reflect plurality; add aliases for backwards compatibility.</li>
+<li>Update and add specs.</li>
+</ul>
+</div><h3>[better_errors] Fix issue when rails can't determine IP address</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/pull/267">View on GitHub: Fix issue when rails can't determine IP address</a><p>Websockets during local development are sending empty remote<em>address so rails see: Started POST &quot;/end</em>point&quot; for undefined</p>
+</div><h3>[better_errors] Instance variables are accessible, but method invocation seems to fail</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/250">View on GitHub: Instance variables are accessible, but method invocation seems to fail</a><p>REPL example:
+```` ruby</p>
+
+<blockquote>
+<blockquote>
+<p>@current<em>user
+=&gt; #<User id: 1, .... >
+current</em>user
+=&gt; nil
+````</p>
+</blockquote>
+</blockquote>
+
+<p>The current<em>user method just sets @current</em>user. But what bothers me more is if I add the following code to a rails controller action:
+<code>ruby
+raise session.inspect
+</code></p>
+
+<p>Better errors shows:
+RuntimeError at /
+{&quot;<em>csrf</em>token&quot;=&gt;&quot;LZVL/M2eXukjsNYW2fvgaZaGFgXzAc+TReXv4JQXqRY=&quot;, &quot;user_id&quot;=&gt;1, &quot;flash&quot;=&gt;#<ActionDispatch::Flash::FlashHash:0x007f613e078d10 @used=#<Set: {:notice}>, @closed=false, @flashes={:notice=&gt;&quot;Logged in!&quot;}, @now=nil&gt;}</p>
+
+<p>However, in the REPL:
+```` ruby</p>
+
+<blockquote>
+<blockquote>
+<p>session
+=&gt; {}
+````</p>
+</blockquote>
+</blockquote>
+
+<p>Which would seem to make sense why at least my current_user method returns nil.</p>
+
+<p>This is in a Rails 3.2 app, but even as I am upgrading to 4.1, I am getting the same behavior. I am methodically going through my dependencies, but any pointers would be appreciated!</p>
+
+<p>I have skimmed the issues and none seem to match, please redirect me if I missed something!</p>
+</div><h3>[better_errors] ignoring JSON</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/247">View on GitHub: ignoring JSON</a><p>This is probably a strange request... </p>
+
+<p>I want use Better Errors for HTML requests in dev. If the request is JSON, whether dev or production, I want to emit a collection+JSON error.</p>
+
+<p>Since I&#39;m using Rails, I would love to handle this at the ApplicationController level. I see that Better Errors is hooked in at the rack level, so I suspect I can&#39;t use something like</p>
+
+<pre><code>  def handle_exception( exception )
+    respond_to do |format|
+      format.html do
+        if( APP_CONFIG[:show_stacktrace] )
+          render :text =&gt; BetterError.for( exception ).to_html
+        else
+          render :file =&gt; &#39;public/404.html&#39;
+        end
+      end
+      format.json { render :json =&gt; ExceptionEndpoint.new(exception).to_json }
+    end
+  end
+</code></pre>
+
+<p>FWIW, ExceptionEndpoint isn&#39;t going to expose anything sensitive.</p>
+
+<p>Since this is a rack app, though, I&#39;m thinking I&#39;ll have to hook in some other way. Any direction would be appreciated.</p>
+</div><h3>[better_errors] Not working with Rails 4.1.0</h3><div><a class='github_link' href="https://github.com/charliesome/better_errors/issues/243">View on GitHub: Not working with Rails 4.1.0</a><p>I have upgraded my app from 4.0.x to 4.1.0 and after that better error stopped working. Anyone faces similar issues ?</p>
+</div>
+		</div>
+	</body>
+</html>
