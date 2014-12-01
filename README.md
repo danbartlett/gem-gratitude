@@ -25,3 +25,7 @@ Requires httparty and redcarpet.
 # Ideas
 
 * Run as webserver that parses all Gemfiles in a Workspace (containing multiple projects)
+
+# Thanks
+
+Hat tip to @andrew and [24pullrequests](http://24pullrequests.com/) for the idea.
