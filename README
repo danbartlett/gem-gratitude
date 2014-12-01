@@ -1,6 +1,6 @@
 # gem-gratitude
 
-Give back to the gem you depend on. gem-gratitude will scan your Gemfile and find any open issues.
+Give back to the gems you depend on! gem-gratitude will scan your Gemfile and find any open issues for you help out on.
 
 Ensure you run gem-gratitude.rb in a directory which has a Gemfile and has been `bundle install`ed.
 
@@ -17,12 +17,11 @@ Requires httparty and redcarpet.
 
 # Todo
 
-* Apply <pre> tags around ` and ``` blocks
+* Bundle into gem
 * Display issue labels along with preview
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
 
 # Ideas
 
-* Executable that can be run in any gem-enabled dir with having to copy the script in
 * Run as webserver that parses all Gemfiles in a Workspace (containing multiple projects)
