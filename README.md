@@ -25,6 +25,7 @@ Requires httparty and redcarpet.
 # Ideas
 
 * Run as webserver that parses all Gemfiles in a Workspace (containing multiple projects)
+* Embed as a link in any project README that says "help out with issues on dependencies for this project"
 
 # Thanks
 
