@@ -9,13 +9,8 @@ class Issue
     # Initializes a Markdown parser
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, hard_wrap: true, fenced_code_blocks: true)
 
-    # Format the issue body
-    def summary(text)
-      parsed = @markdown.render(text)
-    end
-
     # Load Gemfile
-    gemfile_path=File.expand_path('../Gemfile', __FILE__)
+    gemfile_path="#{Dir.pwd}/Gemfile"
 
     # List of all gems
     @gem_list = []
@@ -36,12 +31,14 @@ class Issue
     end
 
     # Not every gem_spec.homepage is a GitHub repo; try and find a GitHub link
+    # Maybe via the GitHub Search API
     @gem_list.each do
-      # if g[:homepage] =~ /https:\/\/github.com\//
+      # if !(g[:homepage] =~ /https:\/\/github.com\//)
     end
 
     # Open HTML output file for writing
-    file = File.open('giveback.html', 'w')
+    tmp_html = '/tmp/giveback.html'
+    file = File.open(tmp_html, 'w')
 
     # Find all open issues via the GitHub API
     @html_content = ''
@@ -57,7 +54,7 @@ class Issue
           @html_content <<
             "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
             "<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
-            "#{summary(issue['body'])}</div>"
+            "#{@markdown.render(issue['body'])}</div>"
         end
       end
     end
@@ -65,5 +62,8 @@ class Issue
     # Write to ERB template
     erb = ERB.new(File.read('template.erb'))
     file.write erb.result(binding)
+
+    # Open up the resulting HTML file
+    `open #{tmp_html}`
   end
 end
