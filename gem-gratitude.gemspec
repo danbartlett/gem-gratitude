@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Dan Bartlett"]
   s.email       = 'danbartlett@gmail.com'
   s.files       = ["lib/gem-gratitude.rb"]
+  s.executables << 'gem-gratitude'
   s.homepage    = 'http://rubygems.org/gems/gem-gratitude'
   s.license     = 'MIT'
 end
