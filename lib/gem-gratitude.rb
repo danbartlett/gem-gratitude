@@ -12,6 +12,11 @@ class Issue
     # Load Gemfile
     gemfile_path="#{Dir.pwd}/Gemfile"
 
+    if !File.exist?(gemfile_path)
+      puts "Couldn't find a Gemfile in this directory"
+      exit
+    end
+
     # List of all gems
     @gem_list = []
 
