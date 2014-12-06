@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "Give back to gems you depend on! Show all open GitHub issues for gems you require in your projects"
   s.authors     = ["Dan Bartlett"]
   s.email       = 'danbartlett@gmail.com'
-  s.files       = ["lib/gem-gratitude.rb"]
+  s.files       = ["lib/gem-gratitude.rb", "bin/gem-gratitude"]
   s.executables << 'gem-gratitude'
   s.homepage    = 'http://rubygems.org/gems/gem-gratitude'
   s.license     = 'MIT'
