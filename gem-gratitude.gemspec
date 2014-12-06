@@ -8,6 +8,8 @@ Gem::Specification.new do |s|
   s.email       = 'danbartlett@gmail.com'
   s.files       = ["lib/gem-gratitude.rb", "bin/gem-gratitude"]
   s.executables << 'gem-gratitude'
+  s.add_runtime_dependency "httparty"
+  s.add_runtime_dependency "redcarpet"
   s.homepage    = 'http://rubygems.org/gems/gem-gratitude'
   s.license     = 'MIT'
 end
