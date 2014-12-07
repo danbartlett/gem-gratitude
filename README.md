@@ -8,7 +8,7 @@ Give back to the gems you depend on! gem-gratitude will scan your Gemfile and fi
 
 # Usage
 
-Just run `gem-gratitude` in any project folder that contains a Gemfile.
+Just run `gem-gratitude` in any project folder that contains a Gemfile. After it's finished scanning, you'll be served a webpage containing all open issues for you to browse at your leisure.
 
 # Todo
 
