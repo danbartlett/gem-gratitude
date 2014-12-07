@@ -24,14 +24,21 @@ class Issue
     replacements = [ '\'', '"', ',' ]
 
     # Parse the gem names from the Gemfile
+    puts 'Reading Gemfile...'
     File.open(gemfile_path).read.each_line do |line|
       parts = line.split
       if parts[0] == "gem" && parts[0].start_with?("gem")
         gem_name = parts[1]
         replacements.each {|r| gem_name.gsub!(r, '')}
         next if parts[2] == 'github:'
-        gem_spec = Gem::Specification.find_by_name(gem_name)
-        @gem_list << {name: gem_name, homepage: gem_spec.homepage}
+        begin
+          gem_spec = Gem::Specification.find_by_name(gem_name)
+          puts "#{gem_name}"
+          @gem_list << {name: gem_name, homepage: gem_spec.homepage} if gem_spec.homepage
+        rescue Gem::LoadError
+          puts "Could not find gem '#{gem_name}'"
+          next
+        end
       end
     end
 
@@ -46,6 +53,7 @@ class Issue
     file = File.open(tmp_html, 'w')
 
     # Find all open issues via the GitHub API
+    puts 'Querying GitHub API for open issues...'
     @html_content = ''
     @issue_count = 0
     @gem_list.each do |g|
@@ -53,7 +61,7 @@ class Issue
       response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open")
       json = JSON.parse(response.body)
       if response.code == 200
-        puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues!"
+        puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
         json.each do |issue|
           @issue_count += 1
           @html_content <<
@@ -65,6 +73,7 @@ class Issue
     end
 
     # Write to ERB template
+    puts 'Generating HTML...'
     erb = ERB.new(File.read('template.erb'))
     file.write erb.result(binding)
 
