@@ -58,7 +58,7 @@ class Issue
     @issue_count = 0
     @gem_list.each do |g|
       github_url = g[:homepage].split('/')
-      response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open")
+      response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open", basic_auth: {username: 'd9eaac28045e8cc35c3f520c7e639caf22b1496e', password: 'x-oauth-basic'})
       json = JSON.parse(response.body)
       if response.code == 200
         puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
