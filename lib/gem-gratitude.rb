@@ -33,7 +33,6 @@ class Issue
         next if parts[2] == 'github:'
         begin
           gem_spec = Gem::Specification.find_by_name(gem_name)
-          puts "#{gem_name}"
           @gem_list << {name: gem_name, homepage: gem_spec.homepage} if gem_spec.homepage
         rescue Gem::LoadError
           puts "Could not find gem '#{gem_name}'"
@@ -58,7 +57,7 @@ class Issue
     @issue_count = 0
     @gem_list.each do |g|
       github_url = g[:homepage].split('/')
-      response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open")
+      response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open", basic_auth: {username: 'd9eaac28045e8cc35c3f520c7e639caf22b1496e', password: 'x-oauth-basic'})
       json = JSON.parse(response.body)
       if response.code == 200
         puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
@@ -74,7 +73,7 @@ class Issue
 
     # Write to ERB template
     puts 'Generating HTML...'
-    erb = ERB.new(File.read('template.erb'))
+    erb = ERB.new(File.read(File.expand_path(File.dirname(__FILE__)) + '/../template.erb'))
     file.write erb.result(binding)
 
     # Open up the resulting HTML file
