@@ -74,7 +74,7 @@ class Issue
 
     # Write to ERB template
     puts 'Generating HTML...'
-    erb = ERB.new(File.read('template.erb'))
+    erb = ERB.new(File.read('../template.erb'))
     file.write erb.result(binding)
 
     # Open up the resulting HTML file
