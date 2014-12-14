@@ -33,7 +33,7 @@ class Issue
         next if parts[2] == 'github:'
         begin
           gem_spec = Gem::Specification.find_by_name(gem_name)
-          puts "#{gem_name}"
+          puts File.expand_path(File.dirname(__FILE__))
           @gem_list << {name: gem_name, homepage: gem_spec.homepage} if gem_spec.homepage
         rescue Gem::LoadError
           puts "Could not find gem '#{gem_name}'"
@@ -74,7 +74,7 @@ class Issue
 
     # Write to ERB template
     puts 'Generating HTML...'
-    erb = ERB.new(File.read('../template.erb'))
+    erb = ERB.new(File.read(File.expand_path(File.dirname(__FILE__)) + '/template.erb'))
     file.write erb.result(binding)
 
     # Open up the resulting HTML file
