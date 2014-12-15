@@ -57,7 +57,11 @@ class Issue
     @issue_count = 0
     @gem_list.each do |g|
       github_url = g[:homepage].split('/')
-      response = HTTParty.get("https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open", basic_auth: {username: 'd9eaac28045e8cc35c3f520c7e639caf22b1496e', password: 'x-oauth-basic'})
+      response = HTTParty.get(
+        "https://api.github.com/repos/#{github_url[-2]}/#{github_url[-1]}/issues?state=open",
+        basic_auth: {username: 'd9eaac28045e8cc35c3f520c7e639caf22b1496e', password: 'x-oauth-basic'},
+        headers: { 'User-Agent' => "gem-gratitude" }
+      )
       json = JSON.parse(response.body)
       if response.code == 200
         puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
@@ -66,7 +70,7 @@ class Issue
           @html_content <<
             "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
             "<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
-            "#{@markdown.render(issue['body'])}</div>"
+            "#{@markdown.render(issue['body'].to_s)}</div>"
         end
       end
     end
