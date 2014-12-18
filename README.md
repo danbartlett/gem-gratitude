@@ -1,6 +1,6 @@
 # gem-gratitude
 
-Give back to the gems you depend on! gem-gratitude will scan your Gemfile and find any open issues for you help out on.
+Give back to the gems you depend on! gem-gratitude will scan your dependencies and find any open issues for you help out on.
 
 # Install
 
@@ -17,6 +17,12 @@ Just run `gem-gratitude` in any project folder that contains a Gemfile. After it
 * Display issue labels along with preview
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
+
+# Contributing
+
+* Fork the project
+* Add your amazing feature/bugfix/typofix
+* Send a pull request. Thanks!
 
 # Ideas
 
