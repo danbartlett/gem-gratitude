@@ -1,6 +1,8 @@
 # gem-gratitude
 
-Give back to the gems you depend on! gem-gratitude will scan your dependencies and find any open issues for you help out on.
+> Give back to the gems you depend on! 
+
+gem-gratitude will scan your dependencies and find any open issues for you help out on.
 
 # Install
 
