@@ -31,7 +31,7 @@ class Issue
       if parts[0] == "gem" && parts[0].start_with?("gem")
         gem_name = parts[1]
         replacements.each {|r| gem_name.gsub!(r, '')}
-        next if parts[2] == 'github:'
+        next if parts[2] =~ /github/
         begin
           gem_spec = Gem::Specification.find_by_name(gem_name)
           @gem_list << {name: gem_name, homepage: gem_spec.homepage} if gem_spec.homepage
