@@ -16,7 +16,6 @@ Just run `gem-gratitude` in any project folder that contains a Gemfile. After it
 
 # Todo
 
-* Display issue labels along with preview
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
 

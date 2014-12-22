@@ -3,6 +3,7 @@ require 'httparty'
 require 'json'
 require 'erb'
 require 'redcarpet'
+require 'os'
 
 class Issue
   def self.list
@@ -74,8 +75,9 @@ class Issue
           end
 
           @html_content <<
-            "<h3>#{@labels} [#{g[:name]}] #{issue['title']}</h3>"\
+            "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
             "<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
+            "<div>#{@labels}</div>"\
             "#{@markdown.render(issue['body'].to_s)}</div>"
         end
       end
@@ -86,7 +88,8 @@ class Issue
     erb = ERB.new(File.read(File.expand_path(File.dirname(__FILE__)) + '/../template.erb'))
     file.write erb.result(binding)
 
-    # Open up the resulting HTML file
-    `open #{tmp_html}`
+    # Open up the resulting HTML file all cross-platform-like
+    `xdg-open #{tmp_html} &` if OS.linux?
+    `open #{tmp_html}` if OS.mac?
   end
 end
