@@ -1,6 +1,6 @@
 # gem-gratitude
 
-> Give back to the gems you depend on! 
+> Give back to the gems you depend on!
 
 gem-gratitude will scan your dependencies and find any open issues for you help out on.
 
@@ -14,15 +14,11 @@ Just run `gem-gratitude` in any project folder that contains a Gemfile. After it
 
 ![gem-gratitude in action](http://i.imgur.com/QTqdIBV.png)
 
-# Todo
-
-* Figure out GitHub urls for non GH [:homepage]'s
-* Exclusion list
-
 # Contributing
 
+* Checkout [Issues](https://github.com/danbartlett/gem-gratitude/issues) to see what's in the pipeline, and what needs fixing.
 * Fork the project
-* Add your amazing feature/bugfix/typofix
+* Code your amazing feature/bugfix/typofix
 * Send a pull request. Thanks!
 
 # Ideas
