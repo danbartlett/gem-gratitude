@@ -67,8 +67,14 @@ class Issue
         puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
         json.each do |issue|
           @issue_count += 1
+
+          @labels = '';
+          issue['labels'].each do |label|
+            @labels << "<span class='label' style='background-color:#{label['color']}'>#{label['name']}</span>"
+          end
+
           @html_content <<
-            "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
+            "<h3>#{@labels} [#{g[:name]}] #{issue['title']}</h3>"\
             "<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
             "#{@markdown.render(issue['body'].to_s)}</div>"
         end
