@@ -12,11 +12,10 @@ gem-gratitude will scan your dependencies and find any open issues for you help 
 
 Just run `gem-gratitude` in any project folder that contains a Gemfile. After it's finished scanning, you'll be served a webpage containing all open issues for you to browse at your leisure.
 
-![gem-gratitude in action](http://i.imgur.com/iunwFgl.png)
+![gem-gratitude in action](http://i.imgur.com/QTqdIBV.png)
 
 # Todo
 
-* Display issue labels along with preview
 * Figure out GitHub urls for non GH [:homepage]'s
 * Exclusion list
 

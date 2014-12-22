@@ -3,6 +3,7 @@ require 'httparty'
 require 'json'
 require 'erb'
 require 'redcarpet'
+require 'os'
 
 class Issue
   def self.list
@@ -30,7 +31,7 @@ class Issue
       if parts[0] == "gem" && parts[0].start_with?("gem")
         gem_name = parts[1]
         replacements.each {|r| gem_name.gsub!(r, '')}
-        next if parts[2] == 'github:'
+        next if parts[2] =~ /github/
         begin
           gem_spec = Gem::Specification.find_by_name(gem_name)
           @gem_list << {name: gem_name, homepage: gem_spec.homepage} if gem_spec.homepage
@@ -67,9 +68,16 @@ class Issue
         puts "#{g[:name]}: #{g[:homepage]} - #{json.count} open issues"
         json.each do |issue|
           @issue_count += 1
+
+          @labels = '';
+          issue['labels'].each do |label|
+            @labels << "<span class='label' style='background-color:#{label['color']}'>#{label['name']}</span>"
+          end
+
           @html_content <<
             "<h3>[#{g[:name]}] #{issue['title']}</h3>"\
             "<div><a class='github_link' href=\"#{issue['html_url']}\">View on GitHub: #{issue['title']}</a>"\
+            "<div>#{@labels}</div>"\
             "#{@markdown.render(issue['body'].to_s)}</div>"
         end
       end
@@ -80,7 +88,8 @@ class Issue
     erb = ERB.new(File.read(File.expand_path(File.dirname(__FILE__)) + '/../template.erb'))
     file.write erb.result(binding)
 
-    # Open up the resulting HTML file
-    `open #{tmp_html}`
+    # Open up the resulting HTML file all cross-platform-like
+    `xdg-open #{tmp_html} &` if OS.linux?
+    `open #{tmp_html}` if OS.mac?
   end
 end

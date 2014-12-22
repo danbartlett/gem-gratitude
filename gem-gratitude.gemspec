@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.executables << 'gem-gratitude'
   s.add_runtime_dependency "httparty"
   s.add_runtime_dependency "redcarpet"
+  s.add_runtime_dependency "os", "~> 0.9"
   s.homepage    = 'http://rubygems.org/gems/gem-gratitude'
   s.license     = 'MIT'
 end
